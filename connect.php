@@ -1,8 +1,13 @@
 <?php
+function connectDB()
+    {
+        $host = "localhost";
+        $user = "root";
+        $pass = "1234";
+        $database = "phpwebdb";
 
-$data = 1234;
-
-$host = "localhost";
-
-$username = "xxxxxx";
+        $conn = mysqli_connect($host, $user, $pass, $database);
+        mysqli_set_charset($conn, "utf8");
+        return $conn;
+    }
 ?>
