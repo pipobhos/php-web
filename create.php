@@ -22,16 +22,10 @@
     
 
         <!-- ฟอร์มเพิ่มข้อมูล -->
-        <form class="row g-3">
+        <form action="action_create.php" method="post" class="row g-3">
             <div class="col-md-3">
                 <label for="prefix" class="form-label">คำนำหน้าชื่อ</label>
                 <input type="text" class="form-control" name="prefix" id="prefix" require>
-                <!-- <input type="text" list="list_prefix" class="form-control" name="prefix" id="prefix" require> -->
-                <!-- <datalist id="list_prefix">
-                    <option value="นาย">
-                    <option value="นาง">
-                    <option value="นางสาว">
-                </datalist> -->
             </div>
             <div class="col-md-3">
                 <label for="firstname" class="form-label">ชื่อ</label>
@@ -44,7 +38,6 @@
             <div class="col-md-3">
                 <label for="gender" class="form-label">เพศ</label>
                 <select name="gender" id="gender" class="form-select">
-                <!-- <option selected>กรุณาเลือกเพศ...</option> -->
                 <option>ชาย</option>
                 <option>หญิง</option>
                 </select>
