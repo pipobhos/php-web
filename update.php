@@ -46,7 +46,7 @@ if($dataResult == null){
 
         <!-- ฟอร์มเพิ่มข้อมูล -->
         <form action="action_update.php" method="post" class="row g-3 needs-validation" novalidate>
-        <input type="text" name="id" value="<?php echo $dataResult['id']; ?>">
+        <input type="hidden" name="id" value="<?php echo $dataResult['id']; ?>">
         <div class="col-md-3">
                 <label for="prefix" class="form-label">คำนำหน้าชื่อ *</label>
                 <input type="text" class="form-control" name="prefix" id="prefix" value="<?php echo $dataResult['prefix']; ?>">

@@ -19,12 +19,13 @@ $search = "";
 if(isset($_GET['search']) && $_GET['search'] != ''){
 
     $search = mysqli_real_escape_string($dataCon, $_GET['search']);
-    $keywords = " WHERE first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR idcard LIKE '%$search%'";
+    $keywords = " AND first_name LIKE '%$search%' OR last_name LIKE '%$search%' OR idcard LIKE '%$search%'";
 
 }
 
-$sql = "SELECT * FROM contact $keywords LIMIT $start, $perpage";
+$sql = "SELECT * FROM contact WHERE status=1 $keywords  LIMIT $start, $perpage";
 
+// echo $sql;
 $dataQuery = mysqli_query($dataCon,$sql);
 
 // print_r($dataQuery);
@@ -94,7 +95,7 @@ $dataQuery = mysqli_query($dataCon,$sql);
                         <td><?php echo $dataResult['mobile']; ?></td>
                         <td>
                             <a href="update.php?id=<?php echo $dataResult['id']; ?>" class="btn btn-warning btn-sm">แก้ไขข้อมูล</a> 
-                            <a href="#" class="btn btn-danger btn-sm">ลบ</a> 
+                            <a href="action_delete.php?id=<?php echo $dataResult['id']; ?>" onclick="return confirm('ยืนยัน ลบ?');" class="btn btn-danger btn-sm">ลบ</a> 
                         </td>
                     </tr>
 
@@ -104,7 +105,7 @@ $dataQuery = mysqli_query($dataCon,$sql);
 
     <?php
 
-        $pageSQL = "SELECT * FROM contact $keywords  ORDER BY id ASC";
+        $pageSQL = "SELECT * FROM contact WHERE status=1 $keywords  ORDER BY id ASC";
         $pageQuery = mysqli_query($dataCon, $pageSQL);
         $totalRow = mysqli_num_rows($pageQuery);
      
