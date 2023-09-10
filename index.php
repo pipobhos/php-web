@@ -31,7 +31,7 @@ $dataQuery = mysqli_query($dataCon,$sql);
 ?>
 <!doctype html>
 <html lang="th" class="h-100">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,9 +40,9 @@ $dataQuery = mysqli_query($dataCon,$sql);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>ระบบฐานข้อมูล โรงพยาบาลแห่งหนึ่ง</title>
-  </head>
-  
-  <body class="d-flex flex-column h-100">
+</head>
+
+<body class="d-flex flex-column h-100">
 
     <div class="container">
 
@@ -78,6 +78,7 @@ $dataQuery = mysqli_query($dataCon,$sql);
                 <th>ชื่อ - สกุล</th>
                 <th>วัน/เดือน/ปี เกิด</th>
                 <th>โทรศัพท์</th>
+                <th>จัดการข้อมูล</th>
             </tr>
         </thead>
         <tbody>
@@ -91,6 +92,10 @@ $dataQuery = mysqli_query($dataCon,$sql);
                         <td><?php echo $dataResult['prefix'],'. ', $dataResult['first_name'], ' ', $dataResult['last_name']; ?></td>
                         <td><?php echo $dataResult['birthdate']; ?></td>
                         <td><?php echo $dataResult['mobile']; ?></td>
+                        <td>
+                            <a href="update.php?id=<?php echo $dataResult['id']; ?>" class="btn btn-warning btn-sm">แก้ไขข้อมูล</a> 
+                            <a href="#" class="btn btn-danger btn-sm">ลบ</a> 
+                        </td>
                     </tr>
 
             <?php    } ?>
@@ -123,5 +128,5 @@ $dataQuery = mysqli_query($dataCon,$sql);
         </div>
 
     </div>    
-  </body>
+</body>
 </html>
