@@ -6,7 +6,7 @@ $perpage = 10;
 
 if(isset($_GET['page']) && (int) $_GET['page']>0){
     $page = $_GET['page'];
-    // $AA = 1111;
+
 }else{
     $page = 1;
 }
@@ -47,6 +47,16 @@ $dataQuery = mysqli_query($dataCon,$sql);
     <div class="container">
 
     <h1 class="mt-5">รายการข้อมูลผู้รับบริการ</h1>
+
+
+
+
+    <!-- ปุ่มสำหรับเพิ่มข้อมูลเข้าตาราง -->
+    <div class="d-grid gap-2 d-md-block">
+        <a class="btn btn-success" href="create.php" role="button">เพิ่มข้อมูล</a>
+        <!-- <button class="btn btn-primary" type="button">Button</button> -->
+        <!-- <button class="btn btn-primary" type="button">Button</button> -->
+    </div>
 
     <!-- ฟอร์มค้นหา -->
     <div class="d-flex justify-content-end">
